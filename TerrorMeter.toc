@@ -1,0 +1,26 @@
+## Interface: 11200
+## Title: |cffff0000Terror|cffffffffMeter
+## Author: El Séquito del Terror
+## Notes: Medidor de daño exclusivo para El Séquito del Terror.
+## Version: 1.0.0
+## OptionalDeps: pfUI
+## SavedVariablesPerCharacter: TerrorMeter_Config
+
+# main
+core.lua
+
+# parser
+parser.lua
+parser-vanilla.lua
+
+# threat
+threat.lua
+sync.lua
+alerts.lua
+
+# integration
+integration.lua
+
+# interface
+window.lua
+settings.lua
