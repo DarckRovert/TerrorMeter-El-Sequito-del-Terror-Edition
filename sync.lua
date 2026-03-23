@@ -201,7 +201,9 @@ local function SendThreatUpdate()
   local message = CompressThreatData()
   if message then
     local channel = UnitInRaid("player") and "RAID" or "PARTY"
-    SendAddonMessage(SYNC_CHANNEL, message, channel)
+    if SendAddonMessage then
+      SendAddonMessage(SYNC_CHANNEL, message, channel)
+    end
     sync_data.last_send = now
   end
 end

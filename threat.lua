@@ -54,6 +54,18 @@ local ability_threat = {
   
   -- Rogue
   ["Feint"] = -600, -- Reduces threat
+  
+  -- Warlock
+  ["Searing Pain"] = 2.0,
+  ["Dolor abrasador"] = 2.0,
+  
+  -- Shaman
+  ["Earth Shock"] = 2.0,
+  ["Choque de tierra"] = 2.0,
+  
+  -- Priest
+  ["Mind Blast"] = 2.0,
+  ["Explosión mental"] = 2.0,
 }
 
 -- Taunt abilities (set threat equal to highest)
@@ -127,6 +139,9 @@ local function CalculateThreat(source, action, value, datatype)
     if abilityMod < 0 then
       -- Percentage reduction (like Blessing of Salvation)
       multiplier = multiplier * (1 + abilityMod)
+    elseif abilityMod > 0 and abilityMod <= 5.0 then
+      -- Percentage multiplier increase (like Searing Pain = 2.0)
+      multiplier = multiplier * abilityMod
     else
       -- Flat bonus (like Sunder Armor)
       bonus = abilityMod

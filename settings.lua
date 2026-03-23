@@ -197,16 +197,16 @@ settings.CreateSelector = CreateSelector
 
 -- window background
 settings:SetBackdrop(backdrop_window)
-settings:SetBackdropColor(.5,.5,.5,.9)
+settings:SetBackdropColor(0, 0, 0, 0.9)
 
 -- window border
 settings.border = CreateFrame("Frame", nil, settings)
 settings.border:ClearAllPoints()
-settings.border:SetPoint("TOPLEFT", settings, "TOPLEFT", -1,1)
-settings.border:SetPoint("BOTTOMRIGHT", settings, "BOTTOMRIGHT", 1,-1)
+settings.border:SetPoint("TOPLEFT", settings, "TOPLEFT", -1, 1)
+settings.border:SetPoint("BOTTOMRIGHT", settings, "BOTTOMRIGHT", 1, -1)
 settings.border:SetFrameLevel(100)
 settings.border:SetBackdrop(backdrop_border)
-settings.border:SetBackdropBorderColor(.7,.7,.7,1)
+settings.border:SetBackdropBorderColor(0.8, 0, 0, 1)
 
 settings.title = settings:CreateTexture(nil, "NORMAL")
 settings.title:SetTexture(0,0,0,.6)
@@ -216,6 +216,7 @@ settings.title:SetPoint("TOPRIGHT", -2, -2)
 
 settings.caption = settings:CreateFontString(nil, "OVERLAY", "GameFontWhite")
 settings.caption:SetFont(STANDARD_TEXT_FONT, 10, "OUTLINE")
+settings.caption:SetShadowOffset(1, -1)
 settings.caption:SetText("|cffff0000Terror|cffffffffMeter")
 settings.caption:SetAllPoints(settings.title)
 

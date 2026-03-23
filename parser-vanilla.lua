@@ -1,8 +1,8 @@
-﻿local parser = TerrorMeter.parser
+local parser = TerrorMeter.parser
 
 -- sanitize, cache and convert patterns into gfind compatible ones
 local sanitize_cache = {}
-function sanitize(pattern)
+local function sanitize(pattern)
   if not sanitize_cache[pattern] then
     local ret = pattern
     -- escape magic characters
@@ -24,7 +24,7 @@ end
 
 -- find, cache and return the indexes of a regex pattern
 local capture_cache = {}
-function captures(pat)
+local function captures(pat)
   local r = capture_cache
   if not r[pat] then
     -- set default to nil
@@ -45,7 +45,7 @@ end
 
 -- same as string.find but aware of up to 5 capture indexes
 local ra, rb, rc, rd, re, a, b, c, d, e, match, num, va, vb, vc, vd, ve
-function cfind(str, pat)
+local function cfind(str, pat)
   -- read capture indexes
   a, b, c, d, e = captures(pat)
   match, num, va, vb, vc, vd, ve = string.find(str, sanitize(pat))

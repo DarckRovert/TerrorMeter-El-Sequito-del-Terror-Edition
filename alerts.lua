@@ -25,12 +25,13 @@ alertFrame.border:SetBackdrop({
   tile = true, tileSize = 16, edgeSize = 16,
   insets = { left = 4, right = 4, top = 4, bottom = 4 }
 })
-alertFrame.border:SetBackdropBorderColor(1, 0, 0, 1)
+alertFrame.border:SetBackdropBorderColor(0.8, 0, 0, 1)
 
 -- Warning text
 alertFrame.text = alertFrame:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
 alertFrame.text:SetPoint("TOP", alertFrame, "TOP", 0, -10)
 alertFrame.text:SetFont(STANDARD_TEXT_FONT, 16, "OUTLINE")
+alertFrame.text:SetShadowOffset(1, -1)
 alertFrame.text:SetText("¡ALTO THREAT!")
 
 -- Threat percentage text
@@ -80,6 +81,7 @@ threatBar.bar:SetStatusBarColor(0.2, 1.0, 0.2) -- Green by default
 threatBar.text = threatBar:CreateFontString(nil, "OVERLAY", "GameFontNormal")
 threatBar.text:SetPoint("CENTER", threatBar, "CENTER", 0, 0)
 threatBar.text:SetFont(STANDARD_TEXT_FONT, 11, "OUTLINE")
+threatBar.text:SetShadowOffset(1, -1)
 threatBar.text:SetText("Threat: 0%")
 
 -- Tank name text
@@ -149,15 +151,18 @@ local function UpdateAlerts()
 end
 
 -- Animation loop
-alertFrame:SetScript("OnUpdate", function()
+alertFrame:SetScript("OnUpdate", function(elapsed)
   if not this:IsShown() then return end
   
+  local multiplier = elapsed and (elapsed * 60) or 1
   -- Flash effect
-  this.flash = this.flash + (0.05 * this.flashDir)
+  this.flash = this.flash + (0.05 * this.flashDir * multiplier)
   if this.flash >= 1 then
     this.flashDir = -1
+    this.flash = 1
   elseif this.flash <= 0.3 then
     this.flashDir = 1
+    this.flash = 0.3
   end
   
   this.bg:SetTexture(0, 0, 0, 0.8 * this.flash)

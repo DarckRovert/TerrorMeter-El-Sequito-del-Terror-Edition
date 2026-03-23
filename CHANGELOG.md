@@ -1,5 +1,23 @@
 # TerrorMeter - Changelog
 
+## Versión 3.0.0 - "Séquito del Terror" God-Tier Edition (Marzo 2026)
+
+### ✨ Mejoras Arquitectónicas (Vanilla)
+- ✅ **Optimización de Memoria (Stuttering Fix):** Reescribimos el motor de generación iterativa de tablas de UI (`spairs` de `window.lua`). El AddOn ahora no produce impacto significativo en el recolector de basura (GC), evitando las clásicas caídas de framerate en partys de 40 Jugadores.
+- ✅ **Seguridad de API:** `SendAddonMessage` y otras variables de Integración fueron envueltas globalmente (`if SendAddonMessage then`). Esto logra compatibilidad pura sin crasheos en ninguna versión (Vanilla 1.12+ o TBC).
+- ✅ **Independencia de FPS:** Removimos dependencias matemáticas atadas a los FPS. El cuadro de alertas ahora calcula destellos rítmicos exactos referenciando `elapsed`, independientemente de tu ordenador.
+
+### 🎨 Revisión Visual Thematica
+- ✅ Interfaces oscurecidas y actualizadas con bordes rojo profundo.
+- ✅ Se insertó la directiva `SetShadowOffset` en cada fuente (`FontString`) de todo el UI, incrementando exponencialmente la legibilidad del texto en pantalla.
+
+### 🐛 Correcciones
+- ✅ **CRÍTICO:** Resolvimos fugas de estado global originarias de `parser-vanilla.lua` limitando el scope de las variables Regex pasándolas a estado `local`. (Tu AddOn ya no sobreescribe variables ajenas de terceros).
+- ✅ **Threat:** Multiplicadores por spell innatos tipo `Searing Pain` (Brujo) o `Earth Shock` (Chamán) ahora escalan adecuadamente y de forma directa como multiplicador porcentual (`x2.0`) en vez de adiciones numéricas planas inexactas.
+- ✅ Eliminados archivos muertos (`threat_simple.lua` y `add_to_window.lua`).
+
+---
+
 ## Versión 2.0.2 - Bugfix Critical (Enero 2026)
 
 ### 🐛 Correcciones Críticas

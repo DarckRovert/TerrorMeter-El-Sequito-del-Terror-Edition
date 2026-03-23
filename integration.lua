@@ -175,7 +175,9 @@ local function SendThreatToSquadAI()
       dpsData and dpsData.dps or 0,
       threatData and threatData.threatPercent or 0
     )
-    SendAddonMessage(INTEGRATION_CHANNEL, message, channel)
+    if SendAddonMessage then
+      SendAddonMessage(INTEGRATION_CHANNEL, message, channel)
+    end
   end
 end
 
