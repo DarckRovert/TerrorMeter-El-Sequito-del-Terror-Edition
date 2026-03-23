@@ -460,6 +460,133 @@ local function ResetData()
   if data.threat then
     for k, v in pairs(data.threat[0]) do
       data.threat[0][k] = nil
+    end
+    for k, v in pairs(data.threat[1]) do
+      data.threat[1][k] = nil
+    end
+  end
+
+  window.Refresh()
+end
+
+local function CreateWindow(wid)
+  -- create default config
+  config[wid] = config[wid] or {}
+  config[wid].bars = config[wid].bars or 8
+  config[wid].width = config[wid].width or 177
+  config[wid].segment = config[wid].segment or 1
+  config[wid].view = config[wid].view or 1
+
+  local frame = CreateFrame("Frame", "TerrorMeterWindow" .. (wid == 1 and "" or wid), UIParent)
+  frame.scroll = 0
+  frame.GetCaps = GetCaps
+  frame.GetData = GetData
+  frame.Refresh = Refresh
+  frame.Resize = Resize
+
+  frame.LoadPosition = function()
+    if TerrorMeter_Config and TerrorMeter_Config[frame:GetID()] and TerrorMeter_Config[frame:GetID()].pos then
+      -- load config position if existing
+      frame:ClearAllPoints()
+      frame:SetPoint("CENTER", UIParent, "BOTTOMLEFT", unpack(TerrorMeter_Config[frame:GetID()].pos))
+    else
+      -- use default window position
+      frame:ClearAllPoints()
+      frame:SetPoint("RIGHT", UIParent, "RIGHT", -100, -100)
+    end
+  end
+
+  frame:SetID(wid)
+  frame:EnableMouse(true)
+  frame:EnableMouseWheel(1)
+  frame:SetResizable(true)
+  frame:SetMinResize(177, 22)
+  frame:RegisterForDrag("LeftButton")
+  frame:SetMovable(true)
+  frame:SetScript("OnDragStart", function()
+    if config.lock == 0 then
+      frame:StartMoving()
+    end
+  end)
+
+  frame:SetScript("OnDragStop", function()
+    frame:StopMovingOrSizing()
+    TerrorMeter_Config[frame:GetID()].pos = { frame:GetCenter() }
+  end)
+
+  frame:SetScript("OnMouseWheel", barScrollWheel)
+  frame:SetClampedToScreen(true)
+
+  frame:SetScript("OnUpdate", function()
+    -- update config on resize
+    if this.sizing then
+      this:Resize()
+    end
+
+    -- only check for updates every .2 seconds
+    if ( this.tick or 1) > GetTime() then return else this.tick = GetTime() + .2 end
+
+    -- check for resize button
+    if config.lock == 0 and MouseIsOver(this) then
+      this.btnResize:SetAlpha(.5)
+    else
+      this.btnResize:SetAlpha(0)
+    end
+
+    -- refresh window if needed
+    if this.needs_refresh then
+      this.needs_refresh = nil
+      this:Refresh()
+    end
+  end)
+
+  frame:RegisterEvent("PLAYER_LOGIN")
+  frame:SetScript("OnEvent", frame.LoadPosition)
+  frame.LoadPosition()
+
+  frame.title = frame:CreateTexture(nil, "NORMAL")
+  frame.title:SetTexture(0,0,0,.6)
+  frame.title:SetHeight(20)
+  frame.title:SetPoint("TOPLEFT", 2, -2)
+  frame.title:SetPoint("TOPRIGHT", -2, -2)
+
+  frame.btnSegment = CreateFrame("Button", "TerrorMeterDamage", frame)
+  frame.btnSegment:SetPoint("RIGHT", frame.title, "CENTER", -.5, 0)
+  frame.btnSegment:SetFrameStrata("MEDIUM")
+  frame.btnSegment:SetHeight(16)
+  frame.btnSegment:SetWidth(50)
+  frame.btnSegment:SetBackdrop(backdrop)
+  frame.btnSegment:SetBackdropColor(.2,.2,.2,1)
+  frame.btnSegment:SetBackdropBorderColor(.4,.4,.4,1)
+
+  frame.btnSegment.caption = frame.btnSegment:CreateFontString("TerrorMeterTitle", "OVERLAY", "GameFontWhite")
+  frame.btnSegment.caption:SetFont(STANDARD_TEXT_FONT, 9)
+  frame.btnSegment.caption:SetText("Overall")
+  frame.btnSegment.caption:SetAllPoints()
+  frame.btnSegment.tooltip = { "Select Segment", "|cffffffffOverall, Current" }
+  frame.btnSegment:SetScript("OnEnter", btnEnter)
+  frame.btnSegment:SetScript("OnLeave", btnLeave)
+  frame.btnSegment:SetScript("OnClick", function()
+    if frame.btnCurrent:IsShown() then
+      frame.btnDamage:Hide()
+      frame.btnDPS:Hide()
+      frame.btnHeal:Hide()
+      frame.btnHPS:Hide()
+      frame.btnThreat:Hide()
+      frame.btnOverall:Hide()
+      frame.btnCurrent:Hide()
+    else
+      frame.btnDamage:Hide()
+      frame.btnDPS:Hide()
+      frame.btnHeal:Hide()
+      frame.btnHPS:Hide()
+      frame.btnThreat:Hide()
+      frame.btnOverall:Show()
+      frame.btnCurrent:Show()
+    end
+  end)
+
+  frame.btnMode = CreateFrame("Button", "TerrorMeterMode", frame)
   frame.btnMode:SetScript("OnClick", function()
     if frame.btnDamage:IsShown() then
       frame.btnDamage:Hide()
