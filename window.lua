@@ -1,4 +1,4 @@
-﻿-- check for expansion
+-- check for expansion
 local tbc = TerrorMeter.expansion() == "tbc" and true or nil
 
 -- load public variables into local
@@ -42,7 +42,7 @@ local backdrop_border = {
 -- templates describing the window contents
 local view_templates = {
   [1] = { -- damage
-    name = "Damage",
+    name = (TM_L and TM_L["Damage"]) or "Damage",
     sort = "normal",
     bar_max = "best",
     bar_val = "value",
@@ -53,7 +53,7 @@ local view_templates = {
     bar_string_params = { "value", "percent" },
   },
   [2] = { -- dps
-    name = "DPS",
+    name = (TM_L and TM_L["DPS"]) or "DPS",
     sort = "per_second",
     bar_max = "persecond_best",
     bar_val = "value_persecond",
@@ -64,7 +64,7 @@ local view_templates = {
     bar_string_params = { "value_persecond", "percent_persecond" },
   },
   [3] = { -- heal
-    name = "Heal",
+    name = (TM_L and TM_L["Heal"]) or "Heal",
     sort = "normal",
     bar_max = "best",
     bar_val = "effective_value",
@@ -75,7 +75,7 @@ local view_templates = {
     bar_string_params = { "uneffective_value", "effective_value", "effective_percent" },
   },
   [4] = { -- hps
-    name = "HPS",
+    name = (TM_L and TM_L["HPS"]) or "HPS",
     sort = "per_second",
     bar_max = "persecond_best",
     bar_val = "effective_value_persecond",
@@ -86,7 +86,7 @@ local view_templates = {
     bar_string_params = { "uneffective_value_persecond", "effective_value_persecond", "effective_percent" },
   },
   [5] = { -- threat
-    name = "Threat",
+    name = (TM_L and TM_L["Threat"]) or "Threat",
     sort = "normal",
     bar_max = "best",
     bar_val = "value",
@@ -101,15 +101,15 @@ local view_templates = {
 -- panel button templates
 local menubuttons = {
   -- segments
-  ["Current"]  = { 0, 1, -25.5, "Current Segment", "|cffffffffShow current fight",      "segment" },
-  ["Overall"]  = { 1, 0, -25.5, "Overall Segment", "|cffffffffShow all fights",         "segment" },
+  ["Current"]  = { 0, 1, -25.5, (TM_L and TM_L["Current"]) or "Current Segment", "|cffffffffShow current fight",      "segment" },
+  ["Overall"]  = { 1, 0, -25.5, (TM_L and TM_L["Overall"]) or "Overall Segment", "|cffffffffShow all fights",         "segment" },
 
   -- modes
-  ["Damage"]   = { 0, 1, 25.5,  "Damage View",     "|cffffffffShow Damage Done",        "view" },
-  ["DPS"]      = { 1, 2, 25.5,  "DPS View",        "|cffffffffShow Damage Per Second",  "view" },
-  ["Heal"]     = { 2, 3, 25.5,  "Heal View",       "|cffffffffShow Healing Done",       "view" },
-  ["HPS"]      = { 3, 4, 25.5,  "HPS View",        "|cffffffffShow Heal Per Second",    "view" },
-  ["Threat"]   = { 4, 5, 25.5,  "Threat View",     "|cffffffffShow Threat Generated",   "view" },
+  ["Damage"]   = { 0, 1, 25.5,  (TM_L and TM_L["Damage"]) or "Damage View",  "|cffffffffShow Damage Done",        "view" },
+  ["DPS"]      = { 1, 2, 25.5,  (TM_L and TM_L["DPS"]) or "DPS View",        "|cffffffffShow Damage Per Second",  "view" },
+  ["Heal"]     = { 2, 3, 25.5,  (TM_L and TM_L["Heal"]) or "Heal View",      "|cffffffffShow Healing Done",       "view" },
+  ["HPS"]      = { 3, 4, 25.5,  (TM_L and TM_L["HPS"]) or "HPS View",        "|cffffffffShow Heal Per Second",    "view" },
+  ["Threat"]   = { 4, 5, 25.5,  (TM_L and TM_L["Threat"]) or "Threat View",  "|cffffffffShow Threat Generated",   "view" },
 }
 
 -- default colors of chat types

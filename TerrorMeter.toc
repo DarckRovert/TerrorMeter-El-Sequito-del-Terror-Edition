@@ -6,6 +6,10 @@
 ## OptionalDeps: pfUI
 ## SavedVariablesPerCharacter: TerrorMeter_Config
 
+# localization (load first)
+locale_en.lua
+locale_es.lua
+
 # main
 core.lua
 
