@@ -2,7 +2,7 @@
 ## Title: |cffff0000Terror|cffffffffMeter
 ## Author: El Séquito del Terror
 ## Notes: Medidor de daño exclusivo para El Séquito del Terror.
-## Version: 3.0.0
+## Version: 9.3.0
 ## OptionalDeps: pfUI
 ## SavedVariablesPerCharacter: TerrorMeter_Config
 
