@@ -32,12 +32,12 @@ TerrorMeter no es solo un medidor de daño; es un sistema de telemetría de comb
 *   `/tm reset` - Borra los datos actuales.
 *   `/tm report [canal]` - Reporta los datos al chat (party, raid, guild).
 
-## 🌐 Integración Terror Ecosystem
+## 🌐 Integración Terror Ecosystem (Séquito Edition)
 
-TerrorMeter alimenta a **TerrorSquadAI** con datos críticos:
-*   Si tu agro es alto, `TerrorSquadAI` te gritará **"¡PARA DPS!"**.
-*   Si eres tanque, te avisará si un Healer está generando demasiada amenaza.
-*   BigWigs le dice a TerrorMeter cuándo cambia de fase un jefe para segmentar los datos.
+TerrorMeter es un componente vital del ecosistema táctico del clan:
+*   **Sincronización Total**: Comparte datos de amenaza con todo el escuadrón.
+*   **IA Táctica**: Envía datos a `TerrorSquadAI` y `WCS_Brain` para optimizar el DPS del clan sin riesgo.
+*   **Ecosistema 10/10**: Parte de la red de 10 addons unificados (pfUI, HealBot, Atlas, etc.).
 
 ## 🔧 Preguntas Frecuentes
 

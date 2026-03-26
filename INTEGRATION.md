@@ -10,14 +10,14 @@ TerrorMeter es parte del **Terror Ecosystem**, un conjunto de addons que trabaja
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
 │  ┌──────────────┐         ┌──────────────┐                 │
-│  │ TerrorMeter  │◄───────►│TerrorSquadAI │                 │
-│  │  (DPS/Threat)│         │ (AI Suggest) │                 │
+│  │ WCS_Brain    │◄───────►│TerrorSquadAI │                 │
+│  │ (Master/DQN) │         │ (AI Suggest) │                 │
 │  └──────┬───────┘         └──────┬───────┘                 │
 │         │                        │                         │
 │         ▼                        ▼                         │
 │  ┌──────────────┐         ┌──────────────┐                 │
-│  │   BigWigs    │         │   DoTimer    │                 │
-│  │ (Boss Fights)│         │    (DoTs)    │                 │
+│  │ TerrorMeter  │         │   pfUI / HB  │                 │
+│  │ (DPS/Threat) │         │ (Interface)  │                 │
 │  └──────────────┘         └──────────────┘                 │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
