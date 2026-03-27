@@ -1,83 +1,75 @@
 # El Ecosistema del Terror - Manual de Inteligencia Colectiva
-
-> **Versión del Documento:** 1.0
+> **Versión del Documento:** 9.3.0 [God-Tier]
+> **Componente:** TerrorMeter (El Sistema Nervioso)
 > **Arquitecto:** DarckRovert / Elnazzareno
-> **Núcleo:** TerrorSquadAI v5.0
 
 ## 🌐 ¿Qué es el Ecosistema?
-No has instalado 4 addons separados. Has instalado una **Red Neural de Combate** de 10 piezas.
-Estos diez componentes (TerrorSquadAI, WCS_Brain, BigWigs, TerrorMeter, DoTimer, pfUI, HealBot, aux-addon, pfQuest, Atlas-TW) han sido unificados para "hablar" entre sí en tiempo real.
+No has instalado addons separados. Has instalado una **Red Neural de Combate** de 10 piezas construida a medida para Turtle WoW.
+Estos componentes interactúan en tiempo real mediante canales de comunicación ocultos para sincronizar la información táctica, la sanación, y la economía de toda la banda.
 
 ---
 
-## 🧩 Los Cuatro Componentes
+## 🗺️ Diagrama de Arquitectura de la Mente de Enjambre (SquadMind)
 
-### 1. El Cerebro: TerrorSquadAI (TSAI)
-Es el comandante central. Toma decisiones, sugiere estrategias, maneja el radar y coordina a los otros addons.
-*   **Rol:** Toma de decisiones y visualización (HUD/Radar).
-*   **Comunicaciones:** Recibe datos de todos y emite órdenes.
+```mermaid
+graph TD
+    %% Estilos
+    classDef core fill:#2C0000,stroke:#FF0000,stroke-width:2px,color:#fff;
+    classDef combat fill:#4B0082,stroke:#9370DB,stroke-width:2px,color:#fff;
+    classDef intel fill:#003366,stroke:#00BFFF,stroke-width:2px,color:#fff;
+    classDef ui fill:#004d00,stroke:#00ff00,stroke-width:2px,color:#fff;
+    classDef extern fill:#404040,stroke:#808080,stroke-width:1px,color:#fff;
 
-### 2. Los Ojos: BigWigs + TerrorLink
-BigWigs ya no es solo un avisador de jefes. Con el plugin `TerrorLink`, se convierte en los ojos tácticos de la IA.
-*   **Función:** Detecta habilidades del jefe antes de que ocurran.
-*   **Integración:** Envía temporizadores al Cerebro. Si BigWigs dice "Explosión inminente", TSAI ordena "¡Escudos!".
+    %% Nodos Core
+    TSAI["🧠 TerrorSquadAI<br/>(Comandante Táctico)"]:::core
+    WCS["🔮 WCS_Brain<br/>(Vínculo Maestro)"]:::core
 
-### 3. El Sistema Nervioso: TerrorMeter (Threat)
-Más allá de medir daño, este addon ahora actúa como un regulador de seguridad.
-*   **Función:** Monitorea la amenaza (aggro) de cada miembro del escuadrón.
-*   **Integración:** Si tu amenaza sube peligrosamente, alerta a TSAI. TSAI entonces te grita en pantalla y, si eres tanque, avisa a los otros tanques.
+    %% Nodos Combate
+    TM["📊 TerrorMeter<br/>(Sistema Nervioso / Threat)"]:::combat
+    HB["💚 HealBot<br/>(Soporte Vital)"]:::combat
+    BW["👁️ BigWigs + TerrorLink<br/>(Detección Jefes)"]:::combat
+    DT["⏱️ DoTimer<br/>(Reloj Biológico)"]:::combat
 
-### 4. El Reloj Biológico: DoTimer
-Controla los tiempos de los perjuicios (DoTs) en el enemigo.
-*   **Integración:** Informa a TSAI y WCS_Brain de qué debuffs faltan.
+    %% Nodos Inteligencia & Logística
+    AUX["💰 aux-addon<br/>(Mercado & Logística)"]:::intel
+    ATLAS["🗺️ Atlas-TW<br/>(Estrategia Dungeon)"]:::intel
+    PFQ["📜 pfQuest<br/>(Inteligencia de Entorno)"]:::intel
 
-### 5. La Flota Táctica: pfUI, HealBot, aux, pfQuest, Atlas
-Integración total de interfaz, sanación, economía y navegación del Séquito.
+    %% Nodos UI
+    PFUI["🖥️ pfUI<br/>(HUD Premium)"]:::ui
 
----
+    %% Conexiones principales
+    WCS <==>|OnPlayerAction / Sugerencias| TSAI
+    
+    %% Conexiones con TerrorMeter
+    TM ==>|Envía Datos de Amenaza Crítica| TSAI
+    TM ==>|Alerta de Pérdida de Agro (ToT)| HB
+    TSAI ==>|Alerta al DPS Stop| PFUI
+    
+    %% Jugadores conectados
+    SquadA(("🎮 Jugador A<br/>(Tanque)")):::extern
+    SquadB(("🎮 Jugador B<br/>(Healer)")):::extern
+    SquadC(("🎮 Jugador C<br/>(DPS)")):::extern
 
-## 🔗 Cómo Funciona la "Mente de Enjambre" (SquadMind)
-
-Si estás en una Raid donde varios jugadores usan este Ecosistema:
-
-1.  **Visión Compartida (TerrorNet):**
-    *   Si el Jugador A detecta un enemigo en su radar, el Jugador B lo verá instantáneamente en su propio radar, aunque esté lejos.
-    *   *Uso:* Emboscadas PvP y evitar patrullas en PvE.
-
-2.  **Defensa Coordinada:**
-    *   Si el Tanque Principal usa *Muro de Escudo*, todos los TSAI de la raid lo registran.
-    *   TSAI avisará al Tanque Secundario: *"Muro de Escudo activo en Tanque 1. NO lo uses todavía"*.
-    *   *Resultado:* Cadenas de defensa perfectas sin usar chat de voz.
-
-3.  **Predicción de Amenaza:**
-    *   TerrorMeter envía datos de amenaza de todos a todos. TSAI calcula quién romperá aggro en los próximos 3 segundos y avisa preventivamente.
-
----
-
-## 🛠️ Comandos Globales
-
-| Comando | Función |
-| :--- | :--- |
-| `/tsai config` | Abre el panel central de configuración. |
-| `/tsai radar` | Activa/Desactiva el Radar Táctico 2.0. |
-| `/tsai hud` | Activa/Desactiva los hologramas de pantalla. |
-| `/terrorlink` | Verifica la conexión con BigWigs. |
-| `/tmbridge status` | Verifica la conexión con TerrorMeter. |
-| `/tsadot toggle` | Activa/Desactiva sugerencias inteligentes de DoTs. |
-| `/tsai net` | Muestra el estado de la red global (TerrorNet). |
+    %% Conexión de Red Séquito
+    SquadA -.->|TerrorNet SYNC| TM
+    SquadB -.->|TerrorNet SYNC| TM
+    SquadC -.->|TerrorNet SYNC| TM
+```
 
 ---
 
-## ⚠️ Solución de Problemas
+## 🧩 El Rol de TerrorMeter en el Ecosistema
 
-**P: ¿Por qué no veo a mis compañeros en el Radar?**
-R: Asegúrate de que ellos también tienen TerrorSquadAI instalado y activado (`/tsai net` para verificar).
+TerrorMeter es el **Sistema Nervioso** de la banda. Mientras otros addons solo muestran números, TerrorMeter se comunica activamente:
 
-**P: BigWigs no avisa a la IA.**
-R: Escribe `/terrorlink`. Si dice "OFF", escribe `/terrorlink` de nuevo. Asegúrate de cargar BigWigs al entrar al juego.
+1. **Alerta a TerrorSquadAI (El Cerebro)**: Si un DPS está al 90% de superar en amenaza al Tanque, TerrorMeter le grita a TerrorSquadAI.
+2. **Reacción de TerrorSquadAI**: TSAI envía una advertencia a la pantalla del DPS: *"¡ALTO AL FUEGO! Modera tu DPS."*
+3. **Alerta a HealBot (El Soporte Vital)**: Si el DPS finalmente roba el Aggro, TerrorMeter notifica a HealBot.
+4. **Respuesta de los Healers**: El cuadro del DPS en HealBot se ilumina en ROJO (Alerta de Agro ToT), indicando a los Healers que preparen escudos de inmediato.
 
-**P: TerrorMeter no muestra mis datos.**
-R: Asegúrate de estar en un grupo o banda. La sincronización requiere un canal de grupo.
+Esta integración en tiempo real permite prevenir wipes antes de que ocurran, coordinando a tanques, healers y DPS sin necesidad de instrucciones por voz.
 
 ---
-*Hecho para la Hermandad: El Sequito del Terror. Larga vida a Turtle WoW.*
+
+> *"No pienses como un jugador, piensa como un enjambre."* — **El Séquito del Terror**
