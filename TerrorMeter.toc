@@ -1,8 +1,8 @@
-## Interface: 11200
+﻿## Interface: 11200
 ## Title: |cffff0000Terror|cffffffffMeter
 ## Author: El Séquito del Terror
 ## Notes: Medidor de daño exclusivo para El Séquito del Terror.
-## Version: 9.3.0
+## Version: 9.3.0 [God-Tier]
 ## OptionalDeps: pfUI
 ## SavedVariablesPerCharacter: TerrorMeter_Config
 
