@@ -105,3 +105,15 @@ MÃ­nimamente. Usa parsing de Combat Log con throttling. En raids de 40 personas 
 
 *Creado para El SÃ©quito del Terror â€” Turtle WoW.*
 *Ver `THREAT_SYSTEM.md` para los detalles matemÃ¡ticos del cÃ¡lculo de amenaza.*
+
+---
+
+## ?? Comunidad y Gobernanza
+
+Este proyecto es parte del ecosistema **El Séquito del Terror**. Nos comprometemos a mantener un ambiente sano y profesional:
+
+- ?? **[Código de Conducta](./CODE_OF_CONDUCT.md)**: Nuestras normas de convivencia.
+- ?? **[Guía de Contribución](./CONTRIBUTING.md)**: Cómo ayudar a expandir este addon.
+- ??? **[Licencia](./LICENSE)**: Este proyecto está bajo la Licencia MIT.
+
+---
