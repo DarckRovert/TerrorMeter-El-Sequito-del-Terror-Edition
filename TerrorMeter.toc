@@ -1,6 +1,6 @@
 ## Interface: 11200
 ## Title: |cffff0000Terror|cffffffffMeter |r|cff00ccff[Séquito del Terror]|r
-## Version: 9.4.0 [Omni-Tier]
+## Version: 1.2.0 [Terror-Tier]
 ## Notes: Medidor de daño y amenaza orquestado para El Séquito del Terror. High-Precision Combat Sync.
 ## Author: El Séquito del Terror (DarckRovert)
 ## OptionalDeps: pfUI

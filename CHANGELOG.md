@@ -4,7 +4,7 @@ Todos los cambios notables en este proyecto serán documentados en este archivo 
 
 ---
 
-## [v9.4.0] — 2026-04-07 [Terror-Tier]
+## [v1.2.0] — 2026-04-07 [Terror-Tier]
 
 ### 📊 Threat & Combat Engine (Mejoras)
 - **Sync Táctico**: Reducción drástica del tiempo de sincronización entre clientes a un máximo de 50ms.
@@ -22,7 +22,7 @@ Todos los cambios notables en este proyecto serán documentados en este archivo 
 
 | Versión | Fecha | Nombre Clave | Estado | Resumen |
 | :--- | :--- | :--- | :---: | :--- |
-| **9.4.0** | 2026-04-07 | **Terror-Tier** | ✅ | Sincronización de Élite e integración ML. |
+| **1.2.0** | 2026-04-07 | **Terror-Tier** | ✅ | Amenaza estratégica v1.2.0. |
 | **9.3.0** | 2026-03-25 | **Combat-Rise** | ⚠️ | Mejoras en el Parser y sincronización LAN. |
 | **9.2.0** | 2026-01-20 | **Stability** | ❌ | Versión inicial del ecosistema. |
 

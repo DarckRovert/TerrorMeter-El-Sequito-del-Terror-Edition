@@ -1,9 +1,9 @@
-# TerrorMeter — Combat Metrics (v9.4.0 [Terror-Tier]) 📊⚔️
+# TerrorMeter — Combat Metrics (v1.2.0 [Terror-Tier]) 📊⚔️
 
 > **The definitive threat and damage visualizer for Turtle WoW.** Un motor de métricas de combate de grado industrial diseñado por **DarckRovert** para el control total del campo de batalla.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
-[![Version](https://img.shields.io/badge/version-v9.4.0--Terror--Tier-red)](./CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-v1.2.0--Terror--Tier-red)](./CHANGELOG.md)
 [![World of Warcraft](https://img.shields.io/badge/WoW-1.12.1--Turtle-orange)](https://turtle-wow.org)
 [![Support](https://img.shields.io/badge/Support-Ko--fi-blue)](https://ko-fi.com/darckrovert)
 
