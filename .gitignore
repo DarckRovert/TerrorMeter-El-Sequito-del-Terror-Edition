@@ -1,15 +1,34 @@
-# Visual Studio Code
-.vscode/
-*.code-workspace
+# TerrorMeter [Combat Metrics] — gitignore 📊🛡️
 
-# Temporary & Local files
+# WoW Excluidos
 *.bak
-*.cache
+*.old
+*.tmp
 *.log
-deploy_log.txt
-LAST_DEPLOY.txt
 
-# Gravity AI 
-.system_generated/
-_knowledge.json
-bridge_log_tail.txt
+# Workspace & OS
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Historic Data & Screenshots
+TerrorMeter_History.lua
+TerrorMeter_Snapshots.lua
+*.jpg
+*.png
+
+# Lua Binaries
+*.lua.compiled
+*.luac
+
+# Archivos de Desarrollo Local
+!README.md
+!CHANGELOG.md
+!LICENSE
+!CONTRIBUTING.md
+!CODE_OF_CONDUCT.md
+!SECURITY.md
+!wiki/
+!ECOSYSTEM.md
+!INTEGRATION.md
+!THREAT_SYSTEM.md

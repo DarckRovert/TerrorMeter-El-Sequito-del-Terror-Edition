@@ -1,19 +1,34 @@
 ---
-name: Bug Report (TM)
-about: Reporte de errores en el cálculo de amenaza
-title: '[BUG] '
-labels: bug
-assignees: DarckRovert
+name: "🐞 Bug Report — Combat Metrics (TerrorMeter)"
+about: "Reporta un error técnico en TerrorMeter v9.4.0+"
+title: "[BUG] Descripción breve del problema"
+labels: ["bug", "triage"]
+assignees: darckrovert
+
 ---
 
-**Descripción**
-Explica por qué los valores de amenaza parecen incorrectos.
+## 📝 Descripción del Problema
+Describe de manera directa y técnica qué está sucediendo. No uses relleno.
 
-**Habilidad/Spell**
-Nombre del hechizo que generó amenaza errónea.
+## 🚀 Pasos para Reproducir
+1.  Entrar al juego con **TerrorMeter (Sequito Edition)**.
+2.  Iniciar combate contra: [ej: Onyxia].
+3.  Observar el error: [ej: Latencia de amenaza o error de parsing].
 
-**Versión del Cliente**
-¿Vanilla o TBC?
+## 📊 Entorno Táctico
+- **Versión de TerrorMeter**: [v9.4.0 Terror-Tier]
+- **Cliente**: Turtle WoW v1.12.1
+- **AddOns en conflicto**: [ej: SW_Stats, KTM]
 
-**Log de Error**
-Copia aquí cualquier error de Lua.
+## 📁 Logs (TerrorMeter Debug)
+Pega aquí el contenido de los errores de LUA completo (si usas Swatter o similar).
+
+```lua
+-- PEGA EL ERROR AQUÍ
+```
+
+## 📸 Evidencia Visual
+Adjunta capturas de pantalla si las barras de amenaza no se muestran correctamente o si hay errores visuales.
+
+---
+© 2026 **DarckRovert** — El Séquito del Terror.

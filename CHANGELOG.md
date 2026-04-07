@@ -1,36 +1,39 @@
-# Changelog — TerrorMeter
+# Changelog — Combat Metrics (TerrorMeter) 📈⚖️
+
+Todos los cambios notables en este proyecto serán documentados en este archivo siguiendo el estándar **Diamond Tier** de **DarckRovert**.
 
 ---
 
-## [9.3.0] — 2024-03-20 (God-Tier — Ecosystem Sync)
-### Añadido
-- Bridge con WCS_Brain: métricas disponibles en pestaña de Estadísticas.
-- Modo HPS (Healing Per Second) completo con desglose por hechizo.
-- Sistema de segmentación automática de encuentros.
-- Sync P2P: publicación de métricas en addon channel del clan.
+## [v9.4.0] — 2026-04-07 [Terror-Tier]
 
-### Cambiado
-- Parser de combate reescrito para mayor precisión en Turtle WoW 1.12.1.
-- Interfaz rediseñada con colores del Séquito (rojo oscuro / dorado).
+### 📊 Threat & Combat Engine (Mejoras)
+- **Sync Táctico**: Reducción drástica del tiempo de sincronización entre clientes a un máximo de 50ms.
+- **Neural Sync**: Nueva integración asíncrona con el motor `WCS_Brain` para métricas de mascotas de Brujo.
+- **Throttling Combat**: Implementación de un ciclo de refresco de 0.1s para evitar saturación de CPU en combates con 40+ jugadores.
+- **Optimización de Red**: Reducción del tamaño de los paquetes de datos de sincronización.
 
-### Arreglado
-- Fix crítico: daño de mascota Warlock ahora se atribuye al jugador, no a la mascota.
-- Corrección de doble conteo en AOE.
+### ⚡ Core & Performance
+- **Rebranding**: Actualización global de URLs institucionales y logos a la estética del Séquito.
+- **Lag-Free Parser**: Refactorización del parser del registro de combate para eliminar picos de FPS.
 
 ---
 
-## [2.1.0] — 2024-01-15
-### Añadido
-- Sistema de amenaza (Threat) con indicadores visuales.
-- Ventanas de DPS configurable: 5s, 15s, 60s, sesión completa.
+## 📊 Matriz de Versiones Mayores
 
-### Arreglado
-- Fix: reset de datos al entrar a una mazmorra.
-- Fix: datos de sanación perdidos en combates largos.
+| Versión | Fecha | Nombre Clave | Estado | Resumen |
+| :--- | :--- | :--- | :---: | :--- |
+| **9.4.0** | 2026-04-07 | **Terror-Tier** | ✅ | Sincronización de Élite e integración ML. |
+| **9.3.0** | 2026-03-25 | **Combat-Rise** | ⚠️ | Mejoras en el Parser y sincronización LAN. |
+| **9.2.0** | 2026-01-20 | **Stability** | ❌ | Versión inicial del ecosistema. |
 
 ---
 
-## [2.0.0] — 2023-12-01 (Rewrite)
-### Cambiado
-- Reescritura completa del parser de combate.
-- Compatibilidad garantizada con Lua 5.0 y Turtle WoW 1.12.1.
+## [v9.3.0] — 2026-03-25
+
+### ✨ Características
+- **Sync de Élite**: Sincronización automática de amenaza entre miembros de la misma Guild.
+- **Bar Customizer**: Nuevas opciones de color y textura nativas de pfUI.
+
+---
+© 2026 **DarckRovert** — El Séquito del Terror.
+*Midiendo el camino hacia la gloria en Azeroth.*
