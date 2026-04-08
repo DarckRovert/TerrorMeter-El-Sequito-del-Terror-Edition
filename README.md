@@ -35,12 +35,13 @@ TerrorMeter no solo mide el daño; cuantifica la **Amenaza Crítica** y se sincr
 
 ## 🏗️ Suite de Documentación (Wiki)
 
-Domina tus métricas en nuestra base de conocimientos:
+Domina tus métricas en nuestra base de conocimientos oficial:
 
-- 📐 **[Arquitectura de Datos](./wiki/Architecture.md)**: Flujo de eventos y Sincronización.
-- ⚙️ **[Benchmarks de Precisión](./wiki/Performance_Audit.md)**: Comparativa técnica de amenaza.
-- 📖 **[Manual de Táctico](./wiki/User_Manual.md)**: Guía de configuración de barras.
-- 🛠️ **[Guía de API](./wiki/API_Guide.md)**: Cómo extraer datos de combate.
+- 🏰 **[Arquitectura de Datos](https://github.com/DarckRovert/TerrorMeter-El-Sequito-del-Terror-Edition/wiki/Arquitectura-(Extended))**: Flujo de eventos y Sincronización.
+- 🛠️ **[Guía de API](https://github.com/DarckRovert/TerrorMeter-El-Sequito-del-Terror-Edition/wiki/Guía-de-API)**: Cómo extraer datos de combate.
+- 📈 **[Auditoría de Rendimiento](https://github.com/DarckRovert/TerrorMeter-El-Sequito-del-Terror-Edition/wiki/Auditoría-de-Rendimiento)**: Comparativa técnica de amenaza.
+- ❓ **[FAQ de Métricas](https://github.com/DarckRovert/TerrorMeter-El-Sequito-del-Terror-Edition/wiki/FAQ)**: Solución a errores comunes.
+- 📖 **[Manual del Táctico](https://github.com/DarckRovert/TerrorMeter-El-Sequito-del-Terror-Edition/wiki/Manual-de-Usuario)**: Guía de configuración de barras.
 
 ## 🚀 Despliegue Rápido (Elite-Flow)
 
