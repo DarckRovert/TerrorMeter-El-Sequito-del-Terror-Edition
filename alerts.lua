@@ -151,10 +151,13 @@ local function UpdateAlerts()
 end
 
 -- Animation loop
-alertFrame:SetScript("OnUpdate", function(elapsed)
+alertFrame:SetScript("OnUpdate", function()
   if not this:IsShown() then return end
   
-  local multiplier = elapsed and (elapsed * 60) or 1
+  local elapsed = arg1
+  if type(elapsed) ~= "number" then elapsed = 1/60 end
+  
+  local multiplier = elapsed * 60
   -- Flash effect
   this.flash = this.flash + (0.05 * this.flashDir * multiplier)
   if this.flash >= 1 then
